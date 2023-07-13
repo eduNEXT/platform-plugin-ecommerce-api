@@ -9,7 +9,7 @@ Status
 Context
 *******
 
-Axim, formerly known as tCRIL, announced a new project to integrate Open edX and WooCommerce as an e-commerce system. The intention is to connect Open edX with a third-party e-commerce platform, enabling a straightforward implementation process and making the e-commerce service accessible for various initiatives. The request for proposal can be found here: `tCRIL Funded Contribution - WooCommerce Discovery`_.
+With the `deprecation of ecommerce`_, Axim launched a funded project to develop capabilities of connecting Open edX to external ecommerce system. The intention is to connect Open edX with a third-party e-commerce platform, enabling a straightforward implementation process and making the e-commerce service accessible for various initiatives. The request for proposal can be found here: `tCRIL Funded Contribution - WooCommerce Discovery`_.
 
 For this integration project, we create a `WooCommerce Discovery document`_, which proposes the creation of a WordPress plugin and an API to generate the necessary actions on the Open edX side. The following image illustrates the expected interactions.
 
@@ -34,11 +34,14 @@ Rejected Alternatives
 *********************
 
 * Create this API directly in the core of the platform. (However, depending on its usage, this could change).
+* Use the `current enrollment API`_ because user requests only support operations for the current user, and the Server-to-server calls may only deactivate or modify existing enrollments' mode.
 
 References
 **********
 
-See `tCRIL Funded Contribution - WooCommerce Discovery`_ and `WooCommerce Discovery document`_ for further information.
+See `deprecation of ecommerce`_, `tCRIL Funded Contribution - WooCommerce Discovery`_, `WooCommerce Discovery document`_ and `current enrollment API`_ for further information.
 
 .. _`tCRIL Funded Contribution - WooCommerce Discovery`: https://discuss.openedx.org/t/tcril-funded-contribution-woocommerce-discovery/9337
 .. _`WooCommerce Discovery document`: https://docs.google.com/document/d/1gImq4DFy3B_JSZlH3tCj5bmPQXji0OCnw1SbGB8bVxw/edit?usp=sharing
+.. _`deprecation of ecommerce`: https://discuss.openedx.org/t/deprecation-removal-ecommerce-service-depr-22/6839
+.. _`current enrollment API`: https://github.com/openedx/edx-platform/blob/3e35e3af8d895c14f05a55a134dbf8a068cd584a/openedx/core/djangoapps/enrollments/views.py#L446
