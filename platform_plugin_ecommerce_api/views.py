@@ -8,7 +8,7 @@ from django.http import HttpResponse
 
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 
-class APIConfigView(request):
+class APIConfigView(APIView):
     
     def get(self, request):
 
