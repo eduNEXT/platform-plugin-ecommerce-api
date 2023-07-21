@@ -4,31 +4,13 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from rest_framework import status
 from rest_framework.views import APIView
+from django.http import HttpResponse
 
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 
-class APIConfigView(APIView):
+class APIConfigView(request):
     
     def get(self, request):
-        """
-        GET /api/v1/mfe_config
-        or
-        GET /api/v1/mfe_config?mfe=name_of_mfe
-        **GET Response Values**
-        ```
-        {
-            "BASE_URL": "https://name_of_mfe.example.com",
-            "LANGUAGE_PREFERENCE_COOKIE_NAME": "example-language-preference",
-            "CREDENTIALS_BASE_URL": "https://credentials.example.com",
-            "DISCOVERY_API_BASE_URL": "https://discovery.example.com",
-            "LMS_BASE_URL": "https://courses.example.com",
-            "LOGIN_URL": "https://courses.example.com/login",
-            "LOGOUT_URL": "https://courses.example.com/logout",
-            "STUDIO_BASE_URL": "https://studio.example.com",
-            "LOGO_URL": "https://courses.example.com/logo.png"
-        }
-        ```
-        """
 
 
         return JsonResponse({"mensaje":"test success"}, status=status.HTTP_200_OK)
