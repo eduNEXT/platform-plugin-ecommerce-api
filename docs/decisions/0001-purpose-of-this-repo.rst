@@ -4,7 +4,7 @@
 Status
 ******
 
-**Draft**
+**Accepted**
 
 Context
 *******
@@ -16,7 +16,7 @@ For this integration project, we create a `WooCommerce Discovery document`_, whi
 .. image:: ../_static/enrollment-diagram.png
   :alt: Sequence diagram of purchase using Woocommerce Integration.
 
-Sequence diagram of purchase using Woocommerce Integration.
+Sequence diagram of purchase using Woocommerce Integration (included to show the high-level flow and not meant to be a comprehensive list of use cases and user flows).
 
 Decision
 ********
@@ -34,7 +34,7 @@ Rejected Alternatives
 *********************
 
 * Create this API directly in the core of the platform. (However, depending on its usage, this could change).
-* Use the `current enrollment API`_ because user requests only support operations for the current user, and the Server-to-server calls may only deactivate or modify existing enrollments' mode.
+* Use the `current enrollment API`_ because we want a more flexible API focused on refund and fulfillment e-commerce operations. For example, allow course enrollments to emails without user in the platform yet.
 
 References
 **********
