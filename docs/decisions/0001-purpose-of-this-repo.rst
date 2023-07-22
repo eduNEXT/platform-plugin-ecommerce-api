@@ -4,54 +4,44 @@
 Status
 ******
 
-**Draft**
-
-.. TODO: When ready, update the status from Draft to Provisional or Accepted.
-
-.. Standard statuses
-    - **Draft** if the decision is newly proposed and in active discussion
-    - **Provisional** if the decision is still preliminary and in experimental phase
-    - **Accepted** *(date)* once it is agreed upon
-    - **Superseded** *(date)* with a reference to its replacement if a later ADR changes or reverses the decision
-
-    If an ADR has Draft status and the PR is under review, you can either use the intended final status (e.g. Provisional, Accepted, etc.), or you can clarify both the current and intended status using something like the following: "Draft (=> Provisional)". Either of these options is especially useful if the merged status is not intended to be Accepted.
+**Accepted**
 
 Context
 *******
 
-TODO: Add context of what led to the creation of this repo.
+With the `deprecation of ecommerce`_, Axim launched a funded project to develop capabilities of connecting Open edX to external ecommerce system. The intention is to connect Open edX with a third-party e-commerce platform, enabling a straightforward implementation process and making the e-commerce service accessible for various initiatives. The request for proposal can be found here: `tCRIL Funded Contribution - WooCommerce Discovery`_.
 
-.. This section describes the forces at play, including technological, political, social, and project local. These forces are probably in tension, and should be called out as such. The language in this section is value-neutral. It is simply describing facts.
+For this integration project, we create a `WooCommerce Discovery document`_, which proposes the creation of a WordPress plugin and an API to generate the necessary actions on the Open edX side. The following image illustrates the expected interactions.
+
+.. image:: ../_static/enrollment-diagram.png
+  :alt: Sequence diagram of purchase using Woocommerce Integration.
+
+Sequence diagram of purchase using Woocommerce Integration (included to show the high-level flow and not meant to be a comprehensive list of use cases and user flows).
 
 Decision
 ********
 
-We will create a repository...
-
-TODO: Clearly state how the context above led to the creation of this repo.
-
-.. This section describes our response to these forces. It is stated in full sentences, with active voice. "We will …"
+* We have created this repository, an installable Django plugin in Open edX, to provide several endpoints related to the necessary operations on the platform to offer the e-commerce service.
+* The main objective of this API is to provide endpoints for the fulfillment and refund of enrollments.
+* We want the use of the API to be wider than integration with WooCommerce. The idea is to be useful for other integrations with e-commerce services.
 
 Consequences
 ************
 
-TODO: Add what other things will change as a result of creating this repo.
-
-.. This section describes the resulting context, after applying the decision. All consequences should be listed here, not just the "positive" ones. A particular decision may have positive, negative, and neutral consequences, but all of them affect the team and project in the future.
+* You need to install this plugin to access its functionalities.
 
 Rejected Alternatives
 *********************
 
-TODO: If applicable, list viable alternatives to creating this new repo and give reasons for why they were rejected. If not applicable, remove section.
-
-.. This section lists alternate options considered, described briefly, with pros and cons.
+* Create this API directly in the core of the platform. (However, depending on its usage, this could change).
+* Use the `current enrollment API`_ because we want a more flexible API focused on refund and fulfillment e-commerce operations. For example, allow course enrollments to emails without user in the platform yet.
 
 References
 **********
 
-TODO: If applicable, add any references. If not applicable, remove section.
+See `deprecation of ecommerce`_, `tCRIL Funded Contribution - WooCommerce Discovery`_, `WooCommerce Discovery document`_ and `current enrollment API`_ for further information.
 
-.. (Optional) List any additional references here that would be useful to the future reader. See `Documenting Architecture Decisions`_ and `OEP-19 on ADRs`_ for further input.
-
-.. _Documenting Architecture Decisions: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
-.. _OEP-19 on ADRs: https://open-edx-proposals.readthedocs.io/en/latest/best-practices/oep-0019-bp-developer-documentation.html#adrs
+.. _`tCRIL Funded Contribution - WooCommerce Discovery`: https://discuss.openedx.org/t/tcril-funded-contribution-woocommerce-discovery/9337
+.. _`WooCommerce Discovery document`: https://docs.google.com/document/d/1gImq4DFy3B_JSZlH3tCj5bmPQXji0OCnw1SbGB8bVxw/edit?usp=sharing
+.. _`deprecation of ecommerce`: https://discuss.openedx.org/t/deprecation-removal-ecommerce-service-depr-22/6839
+.. _`current enrollment API`: https://github.com/openedx/edx-platform/blob/3e35e3af8d895c14f05a55a134dbf8a068cd584a/openedx/core/djangoapps/enrollments/views.py#L446
